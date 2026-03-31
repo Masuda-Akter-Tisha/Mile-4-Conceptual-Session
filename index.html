@@ -3,31 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Plant Tracker</title>
+    <!-- tailwind css -->
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body class="body">
-    <h1 id="heading">Hello Developers!</h1>
-    <p id="paragraph">This is dom method.</p>
-
-   <div class="text-box">
-    <p class="text hidden">Dom</p>
-   <p class="text">querySelectorAll</p>
-   </div>
-
-   <button id="handle" class="border border-black active:scale-95 transition-all">handle</button>
-
-   <section id="text-container" class="border border-black w-[50%] mx-auto">
-
-   </section>
-
-   <div id="delegation">
-    <div>
-        <p>text delegate</p>
-    </div>
-    <button>clicked</button>
-   </div>
-
-    <script src="script.js"></script>
+<body class="min-h-screen">
+    <header class="border-2 border-gray-300">
+        <div class="w-11/12 mx-auto mb-5 mt-2 space-y-4">
+            <h1 class="text-6xl font-bold text-green-500">Plant Tracker</h1>
+            <div class="grid grid-cols-3 gap-5">
+                <div class="bg-yellow-200 border-2 border-gray-200 rounded-md py-3 px-11">
+                    <p>Total</p>
+                    <p>0</p>
+                </div>
+                <div class="bg-green-200 border-2 border-gray-200 rounded-md py-3 px-11">
+                    <p>Thriving</p>
+                    <p>0</p>
+                </div>
+                <div class="bg-red-200 border-2 border-gray-200 rounded-md py-3 px-11">
+                    <p>Struggling</p>
+                    <p>0</p>
+                </div>
+            </div>
+        </div>
+    </header>
 </body>
 </html>
