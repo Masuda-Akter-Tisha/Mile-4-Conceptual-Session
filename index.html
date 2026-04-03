@@ -30,9 +30,9 @@
 
     <main class="w-11/12 mx-auto">
         <div class="space-x-5">
-            <button id="all-filter-btn" class="bg-black text-white px-8 py-5 rounded-md">All</button>
-            <button id="thriving-filter-btn" class="bg-gray-300 px-8 py-5 rounded-md">Thriving</button>
-            <button id="struggling-filter-btn" class="bg-gray-300 px-8 py-5 rounded-md">Struggling</button>
+            <button onclick="togglingStyle ('all-filter-btn')" id="all-filter-btn" class="bg-black text-white px-8 py-5 rounded-md active:scale-95 transition-all">All</button>
+            <button onclick="togglingStyle ('thriving-filter-btn')" id="thriving-filter-btn" class="bg-gray-300 px-8 py-5 rounded-md active:scale-95 transition-all">Thriving</button>
+            <button onclick="togglingStyle ('struggling-filter-btn')" id="struggling-filter-btn" class="bg-gray-300 px-8 py-5 rounded-md active:scale-95 transition-all">Struggling</button>
         </div>
 
         <section id="all-cards" class="mt-6 space-y-6">
