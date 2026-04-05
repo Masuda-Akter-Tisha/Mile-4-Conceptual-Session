@@ -28,12 +28,17 @@
         </div>
     </header>
 
-    <main class="w-11/12 mx-auto">
+    <main id="main-container" class="w-11/12 mx-auto">
         <div class="space-x-5">
             <button onclick="togglingStyle ('all-filter-btn')" id="all-filter-btn" class="bg-black text-white px-8 py-5 rounded-md active:scale-95 transition-all">All</button>
             <button onclick="togglingStyle ('thriving-filter-btn')" id="thriving-filter-btn" class="bg-gray-300 px-8 py-5 rounded-md active:scale-95 transition-all">Thriving</button>
             <button onclick="togglingStyle ('struggling-filter-btn')" id="struggling-filter-btn" class="bg-gray-300 px-8 py-5 rounded-md active:scale-95 transition-all">Struggling</button>
         </div>
+
+        <!-- filtered section -->
+         <section id="filter-section">
+
+         </section>
 
         <section id="all-cards" class="mt-6 space-y-6">
             <!-- plants card-1 -->
@@ -42,27 +47,27 @@
                 <div class="space-y-5">
                     <!-- part-1 -->
                      <div>
-                        <p id="plantName" class="text-3xl">Plant Name 1</p>
-                        <p id="latinName" class="text-2xl text-gray-500">Latin Name</p>
+                        <p class="plantName text-3xl">Plant Name 1</p>
+                        <p class="latinName text-2xl text-gray-500">Latin Name</p>
                      </div>
                      <!-- part-2 -->
                       <div class="flex gap-4">
-                        <p id="light" class="bg-gray-300 px-3 py-2">Light Indicate</p>
-                        <p id="weekly" class="bg-gray-300 px-3 py-2">Weekly</p>
+                        <p class="light bg-gray-300 px-3 py-2">Light Indicate</p>
+                        <p class="weekly bg-gray-300 px-3 py-2">Weekly</p>
                       </div>
                       <!-- part-3 -->
-                       <p id="status">Not Applicable</p>
-                       <p id="notes">New leaf unfurling by the east window.</p>
+                       <p class="status">Not Applicable</p>
+                       <p class="notes">New leaf unfurling by the east window.</p>
                        <!-- part-4 -->
                         <div class="space-x-4">
-                            <button id="thrive-btn" class="bg-green-200 rounded-md py-2 px-5">Thrive</button>
-                            <button id="struggle-btn"class="bg-red-200 rounded-md py-2 px-5">Struggle</button>
+                            <button class="thrive-btn bg-green-200 rounded-md py-2 px-5 active:scale-95 transition-all">Thrive</button>
+                            <button class="struggle-btn bg-red-200 rounded-md py-2 px-5 active:scale-95 transition-all">Struggle</button>
                         </div>
                 </div>
 
                 <!-- main part-2 -->
                 <div>
-                    <button id="delete-btn" class="bg-red-200 text-red-600 py-2 px-4 rounded-sm">Delete</button>
+                    <button id="delete-btn" class="bg-red-200 text-red-600 py-2 px-4 rounded-sm active:scale-95 transition-all">Delete</button>
                 </div>
             </div>
             <!-- plants card-2 -->
@@ -71,56 +76,56 @@
                 <div class="space-y-5">
                     <!-- part-1 -->
                      <div>
-                        <p id="plantName" class="text-3xl">Plant Name 2</p>
-                        <p id="latinName" class="text-2xl text-gray-500">Latin Name</p>
+                        <p class="plantName text-3xl">Plant Name 2</p>
+                        <p class="latinName text-2xl text-gray-500">Latin Name</p>
                      </div>
                      <!-- part-2 -->
                       <div class="flex gap-4">
-                        <p id="light" class="bg-gray-300 px-3 py-2">Light Indicate</p>
-                        <p id="weekly" class="bg-gray-300 px-3 py-2">Weekly</p>
+                        <p class="light bg-gray-300 px-3 py-2">Light Indicate</p>
+                        <p class="weekly bg-gray-300 px-3 py-2">Weekly</p>
                       </div>
                       <!-- part-3 -->
-                       <p id="status">Not Applicable</p>
-                       <p id="notes">New leaf unfurling by the east window.</p>
+                       <p class="status">Not Applicable</p>
+                       <p class="notes">New leaf unfurling by the east window.</p>
                        <!-- part-4 -->
                         <div class="space-x-4">
-                            <button id="thrive-btn" class="bg-green-200 rounded-md py-2 px-5">Thrive</button>
-                            <button id="struggle-btn"class="bg-red-200 rounded-md py-2 px-5">Struggle</button>
+                            <button class="thrive-btn bg-green-200 rounded-md py-2 px-5 active:scale-95 transition-all">Thrive</button>
+                            <button class="struggle-btn bg-red-200 rounded-md py-2 px-5 active:scale-95 transition-all">Struggle</button>
                         </div>
                 </div>
 
                 <!-- main part-2 -->
                 <div>
-                    <button id="delete-btn" class="bg-red-200 text-red-600 py-2 px-4 rounded-sm">Delete</button>
+                    <button id="delete-btn" class="bg-red-200 text-red-600 py-2 px-4 rounded-sm active:scale-95 transition-all">Delete</button>
                 </div>
             </div>
             <!-- plants card-3 -->
             <div class="border-2 border-gray-200 flex justify-between p-6 rounded-md">
                 <!-- main part-1 -->
-                <div class="space-y-5">
+               <div class="space-y-5">
                     <!-- part-1 -->
                      <div>
-                        <p id="plantName" class="text-3xl">Plant Name 3</p>
-                        <p id="latinName" class="text-2xl text-gray-500">Latin Name</p>
+                        <p class="plantName text-3xl">Plant Name 3</p>
+                        <p class="latinName text-2xl text-gray-500">Latin Name</p>
                      </div>
                      <!-- part-2 -->
                       <div class="flex gap-4">
-                        <p id="light" class="bg-gray-300 px-3 py-2">Light Indicate</p>
-                        <p id="weekly" class="bg-gray-300 px-3 py-2">Weekly</p>
+                        <p class="light bg-gray-300 px-3 py-2">Light Indicate</p>
+                        <p class="weekly bg-gray-300 px-3 py-2">Weekly</p>
                       </div>
                       <!-- part-3 -->
-                       <p id="status">Not Applicable</p>
-                       <p id="notes">New leaf unfurling by the east window.</p>
+                       <p class="status">Not Applicable</p>
+                       <p class="notes">New leaf unfurling by the east window.</p>
                        <!-- part-4 -->
                         <div class="space-x-4">
-                            <button id="thrive-btn" class="bg-green-200 rounded-md py-2 px-5">Thrive</button>
-                            <button id="struggle-btn"class="bg-red-200 rounded-md py-2 px-5">Struggle</button>
+                            <button class="thrive-btn bg-green-200 rounded-md py-2 px-5 active:scale-95 transition-all">Thrive</button>
+                            <button class="struggle-btn bg-red-200 rounded-md py-2 px-5 active:scale-95 transition-all">Struggle</button>
                         </div>
                 </div>
 
                 <!-- main part-2 -->
                 <div>
-                    <button id="delete-btn" class="bg-red-200 text-red-600 py-2 px-4 rounded-sm">Delete</button>
+                    <button id="delete-btn" class="bg-red-200 text-red-600 py-2 px-4 rounded-sm active:scale-95 transition-all">Delete</button>
                 </div>
             </div>
         </section>
