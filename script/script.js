@@ -2,6 +2,7 @@
 let total = document.getElementById ('total');
 let thrivingCount = document.getElementById ('thrivingCount');
 let strugglingCount = document.getElementById ('strugglingCount');
+let emptyState = document.getElementById ('empty-state');
 
 let thrivingList = [];
 let strugglingList = [];
@@ -16,6 +17,7 @@ function calculateCount () {
     strugglingCount.innerText = strugglingList.length;
 }
 
+calculateCount ();
 
 // 3 buttons toggling
 const allFilterBtn = document.getElementById ('all-filter-btn');
@@ -36,22 +38,32 @@ function togglingStyle (id) {
    selected.classList.remove ('bg-gray-300', 'text-black');
    selected.classList.add ('bg-black', 'text-white');
 
+   emptyState.classList.add ('hidden');
+
    currentStatus = id;
    console.log (currentStatus);
-
 
     if (id === 'all-filter-btn') {
     allCardsSection.classList.remove ('hidden');
     filterSection.classList.add ('hidden');
+    if (allCardsSection.children.length < 1) {
+        emptyState.classList.remove ('hidden');
+    }
    }
    else if (id === 'thriving-filter-btn') {
     allCardsSection.classList.add ('hidden');
     filterSection.classList.remove ('hidden');
+     if (thrivingList.length < 1) {
+        emptyState.classList.remove ('hidden');
+    }
     renderThriving ();
    }
    else if (id === 'struggling-filter-btn') {
     allCardsSection.classList.add ('hidden');
     filterSection.classList.remove ('hidden');
+     if (strugglingList.length < 1) {
+        emptyState.classList.remove ('hidden');
+    }
     renderStruggling ();
    }
   
@@ -136,6 +148,7 @@ mainContainer.addEventListener ('click', function (event) {
    
     }
 })
+
 
 const filterSection = document.getElementById ('filter-section');
 
