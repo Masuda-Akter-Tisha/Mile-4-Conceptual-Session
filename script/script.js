@@ -3,6 +3,7 @@ let total = document.getElementById ('total');
 let thrivingCount = document.getElementById ('thrivingCount');
 let strugglingCount = document.getElementById ('strugglingCount');
 let emptyState = document.getElementById ('empty-state');
+let tree = document.getElementById ('tree');
 
 let thrivingList = [];
 let strugglingList = [];
@@ -15,6 +16,7 @@ function calculateCount () {
     total.innerText = allCardsSection.children.length;
     thrivingCount.innerText = thrivingList.length;
     strugglingCount.innerText = strugglingList.length;
+    tree.innerText = allCardsSection.children.length;
 }
 
 calculateCount ();
