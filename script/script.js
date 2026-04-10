@@ -3,11 +3,11 @@ let total = document.getElementById ('total');
 let thrivingCount = document.getElementById ('thrivingCount');
 let strugglingCount = document.getElementById ('strugglingCount');
 let emptyState = document.getElementById ('empty-state');
-let tree = document.getElementById ('tree');
+let treeCount = document.getElementById ('tree-count');
 
 let thrivingList = [];
 let strugglingList = [];
-let currentStatus = 'all';
+let currentStatus = 'all-filter-btn';
 
 const allCardsSection = document.getElementById ('all-cards');
 // console.log (cards.children.length);
@@ -16,10 +16,23 @@ function calculateCount () {
     total.innerText = allCardsSection.children.length;
     thrivingCount.innerText = thrivingList.length;
     strugglingCount.innerText = strugglingList.length;
-    tree.innerText = allCardsSection.children.length;
 }
 
 calculateCount ();
+
+function updateAvailableTree() {
+    if (currentStatus === 'all-filter-btn') {
+        treeCount.innerText = allCardsSection.children.length;
+    }
+    else if (currentStatus === 'thriving-filter-btn') {
+        treeCount.innerText = thrivingList.length;
+    }
+    else if (currentStatus === 'struggling-filter-btn') {
+        treeCount.innerText = strugglingList.length;
+    }
+}
+
+updateAvailableTree ();
 
 // 3 buttons toggling
 const allFilterBtn = document.getElementById ('all-filter-btn');
@@ -68,7 +81,7 @@ function togglingStyle (id) {
     }
     renderStruggling ();
    }
-  
+   updateAvailableTree ();
 }
 
 // main container function
@@ -98,7 +111,7 @@ mainContainer.addEventListener ('click', function (event) {
     notes
    }
 
-   plantExist = thrivingList.find (item => item.plantName === cardInfo.plantName);
+   const plantExist = thrivingList.find (item => item.plantName === cardInfo.plantName);
 
    if (!plantExist) {
     thrivingList.push (cardInfo);
@@ -111,6 +124,7 @@ mainContainer.addEventListener ('click', function (event) {
      }
 
    calculateCount ();
+   updateAvailableTree();
 
     }
     else if (event.target.classList.contains ('struggle-btn')) {
@@ -135,7 +149,7 @@ mainContainer.addEventListener ('click', function (event) {
     notes
    }
 
-   plantExist = strugglingList.find (item => item.plantName === cardInfo.plantName);
+   const plantExist = strugglingList.find (item => item.plantName === cardInfo.plantName);
 
    if (!plantExist) {
     strugglingList.push (cardInfo);
@@ -147,7 +161,36 @@ mainContainer.addEventListener ('click', function (event) {
     }
 
    calculateCount ();
-   
+   updateAvailableTree();
+
+    }
+    else if (event.target.classList.contains ('delete')){
+       const parentNode = event.target.parentNode.parentNode;
+       const plantName = parentNode.querySelector ('.plantName').innerText;
+
+       parentNode.remove ();
+
+       thrivingList = thrivingList.filter (item => item.plantName !== plantName);
+       strugglingList = strugglingList.filter (item => item.plantName !== plantName);
+
+       if (currentStatus === 'thriving-filter-btn') {
+        renderThriving ();
+       }
+       else if (currentStatus === 'struggling-filter-btn') {
+        renderStruggling ();
+       }
+
+        if(
+          (currentStatus === 'all-filter-btn' && allCardsSection.children.length < 1) ||
+          (currentStatus === 'thriving-filter-btn' && thrivingList.length < 1) ||
+          (currentStatus === 'struggling-filter-btn' && strugglingList.length < 1)
+       ) {
+        emptyState.classList.remove ('hidden');
+       }
+
+
+       calculateCount (); 
+       updateAvailableTree ();
     }
 })
 
@@ -187,7 +230,7 @@ function renderThriving () {
 
                 <!-- main part-2 -->
                 <div>
-                    <button id="delete-btn" class="bg-red-200 text-red-600 py-2 px-4 rounded-sm active:scale-95 transition-all">Delete</button>
+                    <button class="delete bg-red-200 text-red-600 py-2 px-4 rounded-sm active:scale-95 transition-all">Delete</button>
                 </div>    
         `
         filterSection.appendChild (div);
@@ -226,7 +269,7 @@ function renderStruggling () {
 
                 <!-- main part-2 -->
                 <div>
-                    <button id="delete-btn" class="bg-red-200 text-red-600 py-2 px-4 rounded-sm active:scale-95 transition-all">Delete</button>
+                    <button class="delete bg-red-200 text-red-600 py-2 px-4 rounded-sm active:scale-95 transition-all">Delete</button>
                 </div>    
         `
         filterSection.appendChild (div);
